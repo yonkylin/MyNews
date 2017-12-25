@@ -3,6 +3,7 @@ package yonky.mynews.ui.main.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -154,7 +155,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     }
 
     private void showExitDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.AlertDialogStyle);
+
         builder.setTitle("提示");
         builder.setMessage("确定退出软件吗？");
         builder.setNegativeButton("取消",null);
@@ -164,7 +166,13 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 App.getInstance().exitApp();
             }
         });
-        builder.show();
+       AlertDialog dialog= builder.create();
+        dialog.show();
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.WHITE);
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.WHITE);
+        dialog.getWindow().setDimAmount(0.2f);
+        dialog.getWindow().setWindowAnimations(R.style.dialogWindowAnim);
+//        builder.show();
     }
 
 

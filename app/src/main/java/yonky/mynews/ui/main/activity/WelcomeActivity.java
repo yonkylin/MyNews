@@ -59,8 +59,8 @@ public class WelcomeActivity extends BaseActivity<WelcomePresenter>
         Intent intent = new Intent();
         intent.setClass(this,MainActivity.class);
         startActivity(intent);
-//        finish();
-//        overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+        finish();
+        overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
     }
 
     @Override
