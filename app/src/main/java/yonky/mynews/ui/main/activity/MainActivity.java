@@ -26,6 +26,8 @@ import yonky.mynews.app.App;
 import yonky.mynews.app.Constants;
 import yonky.mynews.base.BaseActivity;
 import yonky.mynews.base.contract.main.MainContract;
+import yonky.mynews.component.RxBus;
+import yonky.mynews.model.event.SearchEvent;
 import yonky.mynews.presenter.MainPresenter;
 import yonky.mynews.ui.gank.fragment.GankMainFragment;
 import yonky.mynews.ui.wechat.fragment.WechatMainFragment;
@@ -119,6 +121,22 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 showHideFragment(getTargetFragment(showFragment),getTargetFragment(hideFragment));
                 hideFragment = showFragment;
                 return true;
+            }
+        });
+        mSearchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                if(showFragment == Constants.TYPE_GANK){
+                    mGankFragment.doSearch(query);
+                }else if(showFragment==Constants.TYPE_WECHAT){
+                    RxBus.getDefault().post(new SearchEvent(query,Constants.TYPE_WECHAT));
+                }
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
             }
         });
     }

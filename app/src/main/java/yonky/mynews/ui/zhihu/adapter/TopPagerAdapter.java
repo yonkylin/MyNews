@@ -13,8 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import yonky.mynews.R;
+import yonky.mynews.app.Constants;
 import yonky.mynews.component.ImageLoader;
 import yonky.mynews.model.bean.DailyListBean;
+import yonky.mynews.ui.zhihu.activity.ZhihuDetailActivity;
 
 /**
  * Created by Administrator on 2017/10/25.
@@ -51,7 +53,11 @@ public class TopPagerAdapter extends PagerAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent();
+                Intent intent = new Intent();
+                intent.setClass(mContext, ZhihuDetailActivity.class);
+                intent.putExtra(Constants.IT_ZHIHU_DETAIL_ID,id);
+                intent.putExtra("isNotTransition",true);
+                mContext.startActivity(intent);
             }
         });
         container.addView(view);

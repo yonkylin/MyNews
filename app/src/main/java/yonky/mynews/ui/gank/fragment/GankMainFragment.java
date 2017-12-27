@@ -12,6 +12,8 @@ import butterknife.BindView;
 import yonky.mynews.R;
 import yonky.mynews.app.Constants;
 import yonky.mynews.base.SimpleFragment;
+import yonky.mynews.component.RxBus;
+import yonky.mynews.model.event.SearchEvent;
 import yonky.mynews.ui.gank.adapter.GankMainAdapter;
 
 /**
@@ -67,5 +69,22 @@ public class GankMainFragment extends SimpleFragment {
         mViewPager.setAdapter(mAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
 
+    }
+
+    public void doSearch(String query){
+        switch(mViewPager.getCurrentItem()){
+            case 0:
+                RxBus.getDefault().post(new SearchEvent(query,Constants.TYPE_ANDROID));
+                break;
+            case 1:
+                RxBus.getDefault().post(new SearchEvent(query, Constants.TYPE_IOS));
+                break;
+            case 2:
+                RxBus.getDefault().post(new SearchEvent(query, Constants.TYPE_WEB));
+                break;
+            case 3:
+                RxBus.getDefault().post(new SearchEvent(query, Constants.TYPE_GIRL));
+                break;
+        }
     }
 }

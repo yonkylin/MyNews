@@ -1,5 +1,7 @@
 package yonky.mynews.component;
 
+import android.util.Log;
+
 import io.reactivex.Flowable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;

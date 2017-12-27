@@ -35,11 +35,13 @@ public interface HttpHelper {
     Flowable<HotListBean>fetchHotListInfo();
     //微信
     Flowable<WXItemBean>fetchWXDataInfo(int num,int page);
+    Flowable<WXItemBean>fetchWechatSearchListInfo(int num,int page,String word);
 
 //    干货
     Flowable<GankListBean>fetchGankDataInfo(String tech,int num,int page);
     Flowable<GankListBean>fetchGirlListInfo(int num,int page);
     Flowable<GankListBean>fetchRandomGirlInfo(int num);
+    Flowable<GankListBean>fetchGankSearchList(String query,String type,int num,int page);
 
 //    掘金
     Flowable<GoldHttpResponse<List<GoldListBean>>>fetchGoldList(String type,int num,int page);

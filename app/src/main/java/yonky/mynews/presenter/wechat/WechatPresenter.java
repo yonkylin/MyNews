@@ -2,6 +2,8 @@ package yonky.mynews.presenter.wechat;
 
 
 
+import android.util.Log;
+
 import javax.inject.Inject;
 
 import io.reactivex.Flowable;
@@ -38,10 +40,10 @@ public class WechatPresenter extends RxPresenter<WechatContract.View> implements
     @Override
     public void attachView(WechatContract.View view) {
         super.attachView(view);
-//        registerEvent();
+        registerEvent();
     }
 
-  /*  private void registerEvent(){
+ private void registerEvent(){
         addSubscribe(RxBus.getDefault().toFlowable(SearchEvent.class)
                 .compose(RxUtil.<SearchEvent>rxSchedulerHelper())
                 .filter(new Predicate<SearchEvent>() {
@@ -60,7 +62,7 @@ public class WechatPresenter extends RxPresenter<WechatContract.View> implements
                     @Override
                     public void onNext(String s) {
                         queryStr = s;
-//                        getSearchWechatData(s);
+                        getSearchWechatData(s);
                     }
 
                     @Override
@@ -70,7 +72,7 @@ public class WechatPresenter extends RxPresenter<WechatContract.View> implements
                     }
                 })
         );
-    }*/
+    }
 
     @Override
     public void getWechatData() {
@@ -91,11 +93,11 @@ public class WechatPresenter extends RxPresenter<WechatContract.View> implements
     @Override
     public void getMoreWechatData() {
         Flowable<WXItemBean> observable;
-//        if(queryStr != null){
-//            observable = mDataManager
-//        }else {
+        if(queryStr != null){
+            observable = mDataManager.fetchWechatSearchListInfo(NUM_OF_PAGE,++currentPage,queryStr);
+        }else {
             observable = mDataManager.fetchWXDataInfo(NUM_OF_PAGE,++currentPage);
-//        }
+        }
         addSubscribe(observable
                 .compose(RxUtil.<WXItemBean>rxSchedulerHelper())
                 .subscribeWith(new CommonSubscriber<WXItemBean>(mView) {
@@ -106,4 +108,18 @@ public class WechatPresenter extends RxPresenter<WechatContract.View> implements
                                })
         );
     }
+
+    private void getSearchWechatData(String query){
+        currentPage = 1;
+        addSubscribe(mDataManager.fetchWechatSearchListInfo(NUM_OF_PAGE,currentPage,query)
+                .compose(RxUtil.<WXItemBean>rxSchedulerHelper())
+                .subscribeWith(new CommonSubscriber<WXItemBean>(mView){
+                    @Override
+                    public void onNext(WXItemBean wxItemBean) {
+                        mView.showContent(wxItemBean.getNewslist());
+                    }
+                })
+        );
+    }
+
 }

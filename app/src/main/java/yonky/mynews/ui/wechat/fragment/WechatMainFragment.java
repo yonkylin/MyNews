@@ -79,6 +79,7 @@ public class WechatMainFragment extends RootFragment<WechatPresenter> implements
             swipeRefresh.setRefreshing(false);
         }
         stateMain();
+        mList.clear();
         mList.addAll(list);
         mAdapter.notifyDataSetChanged();
     }

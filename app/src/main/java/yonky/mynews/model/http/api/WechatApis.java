@@ -21,7 +21,7 @@ public interface WechatApis {
     /**
      * 微信精选列表
      */
-//    @GET("wxnew")
-//    Flowable<WXHttpResponse<List<WXItemBean>>> getWXHotSearch(@Query("key") String key, @Query("num") int num, @Query("page") int page, @Query("word") String word);
+    @GET("wxnew")
+    Flowable<WXItemBean> getWXHotSearch(@Query("key") String key, @Query("num") int num, @Query("page") int page, @Query("word") String word);
 
 }

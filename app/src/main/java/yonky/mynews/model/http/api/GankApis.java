@@ -23,4 +23,8 @@ public interface GankApis {
 //    随机妹纸图
     @GET("random/data/福利/{num}")
     Flowable<GankListBean> getRandomGirl(@Path("num")int num);
+
+    //搜索
+    @GET("search/query/{query}/category/{type}/count/{count}/page/{page}")
+    Flowable<GankListBean>getSearchList(@Path("query") String query, @Path("type") String type,@Path("count") int num , @Path("page") int page );
 }

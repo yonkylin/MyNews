@@ -101,7 +101,12 @@ public class RetrofitHelper implements HttpHelper {
         return mWechatApiService.getWXHot(KEY_API,num,page);
     }
 
-//    干货
+    @Override
+    public Flowable<WXItemBean> fetchWechatSearchListInfo(int num, int page, String word) {
+        return mWechatApiService.getWXHotSearch(KEY_API,num,page,word);
+    }
+
+    //    干货
 
     @Override
     public Flowable<GankListBean> fetchGankDataInfo(String tech, int num, int page) {
@@ -118,7 +123,12 @@ public class RetrofitHelper implements HttpHelper {
         return mGankApiService.getRandomGirl(num);
     }
 
-//    掘金
+    @Override
+    public Flowable<GankListBean> fetchGankSearchList(String query, String type, int num, int page) {
+        return mGankApiService.getSearchList(query,type,num,page);
+    }
+
+    //    掘金
 
     @Override
     public Flowable<GoldHttpResponse<List<GoldListBean>>> fetchGoldList(String type, int num, int page) {

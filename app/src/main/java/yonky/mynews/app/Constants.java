@@ -16,6 +16,8 @@ public class Constants {
     public static final int TYPE_IOS = 103;
 
     public static final int TYPE_WEB = 104;
+    public static final int TYPE_GIRL = 105;
+
     //============key================
     public static final String KEY_API="a744d07b473a985f6f98424d1886cc42";
 
@@ -35,6 +37,7 @@ public class Constants {
     public static final String IT_ZHIHU_THEME_ID = "zhihu_theme_id";
     public static final String IT_ZHIHU_SECTION_ID="zhihu_section_id";
     public static final String IT_ZHIHU_SECTION_TITLE="zhihu_section_title";
+    public static final String IT_ZHIHU_DETAIL_TRANSITION = "zhihu_detail_transition";
 
     public static final String IT_GANK_DETAIL_TITLE = "gank_detail_title";
     public static final String IT_GANK_DETAIL_URL = "gank_detail_url";

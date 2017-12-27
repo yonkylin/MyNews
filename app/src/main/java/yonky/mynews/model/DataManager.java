@@ -97,6 +97,11 @@ public class DataManager implements HttpHelper,DBHelper,PreferencesHelper {
     }
 
     @Override
+    public Flowable<WXItemBean> fetchWechatSearchListInfo(int num, int page, String word) {
+        return mHttpHelper.fetchWechatSearchListInfo(num,page,word);
+    }
+
+    @Override
     public int getCurrentItem() {
         return mPreferencesHelper.getCurrentItem();
     }
@@ -123,7 +128,12 @@ public class DataManager implements HttpHelper,DBHelper,PreferencesHelper {
         return mHttpHelper.fetchRandomGirlInfo(num);
     }
 
-//    掘金
+    @Override
+    public Flowable<GankListBean> fetchGankSearchList(String query, String type, int num, int page) {
+        return mHttpHelper.fetchGankSearchList(query,type,num,page);
+    }
+
+    //    掘金
 
 
     @Override
