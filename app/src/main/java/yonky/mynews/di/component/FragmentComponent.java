@@ -8,6 +8,7 @@ import yonky.mynews.di.scope.FragmentScope;
 import yonky.mynews.ui.gank.fragment.GirlFragment;
 import yonky.mynews.ui.gank.fragment.TechFragment;
 import yonky.mynews.ui.gold.fragment.GoldPagerFragment;
+import yonky.mynews.ui.main.fragment.LikeFragment;
 import yonky.mynews.ui.wechat.fragment.WechatMainFragment;
 import yonky.mynews.ui.zhihu.fragment.DailyFragment;
 import yonky.mynews.ui.zhihu.fragment.HotFragment;
@@ -21,6 +22,8 @@ import yonky.mynews.ui.zhihu.fragment.ThemeFragment;
 @Component(dependencies = AppComponent.class,modules = FragmentModule.class)
 public interface FragmentComponent {
     Activity getActivity();
+//    收藏
+    void inject(LikeFragment likeFragment);
 //    知乎
     void inject(DailyFragment dailyFragment);
     void inject(ThemeFragment themeFragment);

@@ -80,6 +80,7 @@ public class TechPresenter extends RxPresenter<TechContract.View> implements Tec
                 .subscribeWith(new CommonSubscriber<GankListBean>(mView){
                     @Override
                     public void onNext(GankListBean gankListBean) {
+                        Log.e("yonky",gankListBean.getResults().get(0).getDesc());
                         mView.showContent(gankListBean.getResults());
                     }
                 })

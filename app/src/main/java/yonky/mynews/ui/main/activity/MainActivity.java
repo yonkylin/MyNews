@@ -2,7 +2,6 @@ package yonky.mynews.ui.main.activity;
 
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,7 +15,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
-import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import butterknife.BindView;
@@ -28,7 +26,7 @@ import yonky.mynews.base.BaseActivity;
 import yonky.mynews.base.contract.main.MainContract;
 import yonky.mynews.component.RxBus;
 import yonky.mynews.model.event.SearchEvent;
-import yonky.mynews.presenter.MainPresenter;
+import yonky.mynews.presenter.main.MainPresenter;
 import yonky.mynews.ui.gank.fragment.GankMainFragment;
 import yonky.mynews.ui.wechat.fragment.WechatMainFragment;
 import yonky.mynews.ui.zhihu.fragment.ZhihuMainFragment;
@@ -206,8 +204,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 //                return mGoldFragment;
 //            case Constants.TYPE_VTEX:
 //                return mVtexFragment;
-//            case Constants.TYPE_LIKE:
-//                return mLikeFragment;
+            case Constants.TYPE_LIKE:
+                return mLikeFragment;
 //            case Constants.TYPE_SETTING:
 //                return mSettingFragment;
 //            case Constants.TYPE_ABOUT:
@@ -228,8 +226,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 //                return R.id.drawer_gold;
 //            case Constants.TYPE_VTEX:
 //                return R.id.drawer_vtex;
-//            case Constants.TYPE_LIKE:
-//                return R.id.drawer_like;
+            case Constants.TYPE_LIKE:
+                return R.id.drawer_like;
 //            case Constants.TYPE_SETTING:
 //                return R.id.drawer_setting;
 //            case Constants.TYPE_ABOUT:

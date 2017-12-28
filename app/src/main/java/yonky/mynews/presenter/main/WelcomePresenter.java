@@ -1,4 +1,4 @@
-package yonky.mynews.presenter;
+package yonky.mynews.presenter.main;
 
 import java.util.concurrent.TimeUnit;
 

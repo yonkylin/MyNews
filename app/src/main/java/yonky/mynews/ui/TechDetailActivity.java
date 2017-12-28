@@ -24,8 +24,10 @@ import yonky.mynews.R;
 import yonky.mynews.app.App;
 import yonky.mynews.app.Constants;
 import yonky.mynews.base.SimpleActivity;
+import yonky.mynews.model.bean.RealmLikeBean;
 import yonky.mynews.model.db.RealmHelper;
 import yonky.mynews.model.prefs.ImplPreferencesHelper;
+import yonky.mynews.util.SystemUtil;
 
 /**
  * Created by Administrator on 2017/11/4.
@@ -101,13 +103,54 @@ public class TechDetailActivity extends SimpleActivity {
 
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.tech_menu,menu);
-//        menuItem = menu.findItem(R.id.action_like);
-//        setLikeState(mRealmHelper.queryLikeId(id));
-//        return true;
-//    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.tech_menu,menu);
+        menuItem = menu.findItem(R.id.action_like);
+        setLikeState(mRealmHelper.queryLikeId(id));
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.id.action_like:
+                if(isLiked){
+                    item.setIcon(R.mipmap.ic_toolbar_like_n);
+                    mRealmHelper.deleteLikeBean(this.id);
+                    isLiked=false;
+                }else{
+                    item.setIcon(R.mipmap.ic_toolbar_like_p);
+                    RealmLikeBean bean = new RealmLikeBean();
+                    bean.setId(this.id);
+                    bean.setImage(imgUrl);
+                    bean.setUrl(url);
+                    bean.setTitle(title);
+                    bean.setType(type);
+                    bean.setTime(System.currentTimeMillis());
+                    mRealmHelper.insertLikeBean(bean);
+                    isLiked= true;
+
+                }
+                break;
+            case R.id.action_copy:
+
+            case R.id.action_share:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void setLikeState(boolean state){
+        if(state){
+          menuItem.setIcon(R.mipmap.ic_toolbar_like_p);
+            isLiked = true;
+        }else{
+            menuItem.setIcon(R.mipmap.ic_toolbar_like_n);
+            isLiked = false;
+        }
+    }
 
 
     @Override

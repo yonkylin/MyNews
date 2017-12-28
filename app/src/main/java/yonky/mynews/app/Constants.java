@@ -18,6 +18,8 @@ public class Constants {
     public static final int TYPE_WEB = 104;
     public static final int TYPE_GIRL = 105;
 
+    public static final int TYPE_LIKE = 111;
+
     //============key================
     public static final String KEY_API="a744d07b473a985f6f98424d1886cc42";
 

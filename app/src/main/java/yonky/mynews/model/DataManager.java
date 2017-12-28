@@ -8,6 +8,7 @@ import yonky.mynews.model.bean.DailyListBean;
 import yonky.mynews.model.bean.GankListBean;
 import yonky.mynews.model.bean.GoldListBean;
 import yonky.mynews.model.bean.HotListBean;
+import yonky.mynews.model.bean.RealmLikeBean;
 import yonky.mynews.model.bean.SectionChildListBean;
 import yonky.mynews.model.bean.SectionListBean;
 import yonky.mynews.model.bean.ThemeChildListBean;
@@ -58,6 +59,31 @@ public class DataManager implements HttpHelper,DBHelper,PreferencesHelper {
     @Override
     public Flowable<WelcomeBean> fetchWelcomeInfo(String res) {
         return mHttpHelper.fetchWelcomeInfo(res);
+    }
+
+    @Override
+    public void insertLikeBean(RealmLikeBean bean) {
+        mDbHelper.insertLikeBean(bean);
+    }
+
+    @Override
+    public void deleteLikeBean(String id) {
+        mDbHelper.deleteLikeBean(id);
+    }
+
+    @Override
+    public boolean queryLikeId(String id) {
+        return mDbHelper.queryLikeId(id);
+    }
+
+    @Override
+    public List<RealmLikeBean> getLikeList() {
+        return mDbHelper.getLikeList();
+    }
+
+    @Override
+    public void changeLikeTime(String id, long time, boolean isPlus) {
+        mDbHelper.changeLikeTime(id,time,isPlus);
     }
 
     @Override

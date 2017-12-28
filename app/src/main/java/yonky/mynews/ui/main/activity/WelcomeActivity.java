@@ -10,9 +10,8 @@ import butterknife.BindView;
 import yonky.mynews.R;
 import yonky.mynews.base.BaseActivity;
 import yonky.mynews.base.contract.main.WelcomeContract;
-import yonky.mynews.component.ImageLoader;
 import yonky.mynews.model.bean.WelcomeBean;
-import yonky.mynews.presenter.WelcomePresenter;
+import yonky.mynews.presenter.main.WelcomePresenter;
 
 /**
  * Created by Administrator on 2017/10/13.
