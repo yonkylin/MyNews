@@ -1,8 +1,12 @@
 package yonky.mynews.ui.gank.fragment;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
+import android.os.Build;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -10,13 +14,16 @@ import java.util.List;
 
 import butterknife.BindView;
 import yonky.mynews.R;
+import yonky.mynews.app.Constants;
 import yonky.mynews.base.BaseFragment;
 import yonky.mynews.base.contract.gank.GirlContract;
 import yonky.mynews.di.component.FragmentComponent;
 import yonky.mynews.model.bean.GankListBean;
 import yonky.mynews.model.bean.SectionChildListBean;
 import yonky.mynews.presenter.gank.GirlPresenter;
+import yonky.mynews.ui.gank.activity.GirlDetailActivity;
 import yonky.mynews.ui.gank.adapter.GirlAdapter;
+import yonky.mynews.ui.zhihu.activity.CalendarActivity;
 
 /**
  * Created by Administrator on 2017/11/7.
@@ -77,8 +84,17 @@ public class GirlFragment extends BaseFragment<GirlPresenter> implements GirlCon
         mAdapter.setOnItemClickListener(new GirlAdapter.OnItemClickListener() {
             @Override
             public void onItemClickListener(int position, View view) {
-//                Intent intent = new Intent();
-//                intent.setClass(mContext,)
+                Intent intent = new Intent();
+                intent.setClass(mContext, GirlDetailActivity.class);
+                intent.putExtra(Constants.IT_GANK_GRIL_URL,mList.get(position).getUrl());
+                intent.putExtra(Constants.IT_GANK_GRIL_ID,mList.get(position).get_id());
+                if(Build.VERSION.SDK_INT>=21){
+                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(mActivity,view,"shareView");
+                    mContext.startActivity(intent,options.toBundle());
+                }else {
+                    startActivity(intent);
+                }
+
             }
         });
         stateLoading();

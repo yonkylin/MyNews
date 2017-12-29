@@ -1,8 +1,7 @@
-package yonky.mynews.ui;
+package yonky.mynews.ui.gank.activity;
 
 import android.app.Activity;
 import android.app.ActivityOptions;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -27,7 +26,6 @@ import yonky.mynews.base.SimpleActivity;
 import yonky.mynews.model.bean.RealmLikeBean;
 import yonky.mynews.model.db.RealmHelper;
 import yonky.mynews.model.prefs.ImplPreferencesHelper;
-import yonky.mynews.util.SystemUtil;
 
 /**
  * Created by Administrator on 2017/11/4.

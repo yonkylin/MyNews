@@ -2,6 +2,7 @@ package yonky.mynews.ui.main.fragment;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,13 +43,22 @@ public class LikeFragment extends BaseFragment<LikePresenter> implements LikeCon
         mAdapter = new LikeAdapter(mContext,mList);
         rvLikeList.setLayoutManager(new LinearLayoutManager(mContext));
 //        mCallback = new DefaultItemTouchHelpCallback()
+        rvLikeList.setAdapter(mAdapter);
         mPresenter.getLikeData();
     }
     @Override
     public void showContent(List<RealmLikeBean> list) {
         mList.clear();
         mList.addAll(list);
+//        Log.e("yonkylin","type:"+mList.get(0).getType());
         mAdapter.notifyDataSetChanged();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(isInited){
+            mPresenter.getLikeData();
+        }
+    }
 }

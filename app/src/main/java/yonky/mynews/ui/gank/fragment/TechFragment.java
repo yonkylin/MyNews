@@ -10,8 +10,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +22,7 @@ import yonky.mynews.base.contract.gank.TechContract;
 import yonky.mynews.component.ImageLoader;
 import yonky.mynews.model.bean.GankListBean;
 import yonky.mynews.presenter.gank.TechPresenter;
-import yonky.mynews.ui.TechDetailActivity;
+import yonky.mynews.ui.gank.activity.TechDetailActivity;
 import yonky.mynews.ui.gank.adapter.TechAdapter;
 import yonky.mynews.util.SystemUtil;
 

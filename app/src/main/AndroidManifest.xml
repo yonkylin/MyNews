@@ -46,9 +46,12 @@
             android:screenOrientation="portrait"/>
 
         //Gank
-        <activity android:name=".ui.TechDetailActivity"
+        <activity android:name=".ui.gank.activity.TechDetailActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:windowSoftInputMode="stateHidden|adjustResize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.gank.activity.GirlDetailActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
 

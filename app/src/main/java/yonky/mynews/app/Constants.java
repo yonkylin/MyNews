@@ -1,5 +1,7 @@
 package yonky.mynews.app;
 
+import android.os.Environment;
+
 import java.io.File;
 
 /**
@@ -31,6 +33,7 @@ public class Constants {
 
     public static final String PATH_DATA = App.getInstance().getCacheDir().getAbsolutePath() + File.separator + "data";
     public static final String PATH_CACHE = PATH_DATA + "/NetCache";
+    public static final String PATH_SDCARD = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "MyNews";
 
     //================= PREFERENCE ====================
     public static final String SP_CURRENT_ITEM = "current_item";
@@ -46,6 +49,8 @@ public class Constants {
     public static final String IT_GANK_DETAIL_IMG_URL = "gank_detail_img_url";
     public static final String IT_GANK_DETAIL_ID = "gank_detail_id";
     public static final String IT_GANK_DETAIL_TYPE = "gank_detail_type";
+    public static final String IT_GANK_GRIL_ID = "gank_girl_id";
+    public static final String IT_GANK_GRIL_URL = "gank_girl_url";
 
     public static final String IT_GANK_TYPE = "gank_type";
     public static final String IT_GANK_TYPE_CODE = "gank_type_code";

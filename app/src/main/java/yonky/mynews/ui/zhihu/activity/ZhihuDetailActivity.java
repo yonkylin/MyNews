@@ -3,6 +3,7 @@ package yonky.mynews.ui.zhihu.activity;
 import android.content.Intent;
 import android.os.Build;
 
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
 import android.transition.Transition;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import yonky.mynews.R;
 import yonky.mynews.app.Constants;
 import yonky.mynews.base.RootActivity;
@@ -43,6 +45,8 @@ public class ZhihuDetailActivity extends RootActivity<ZhihuDetailPresenter> impl
     WebView wvDetailContent;
     @BindView(R.id.nsv_scroller)
     NestedScrollView nsvScroller;
+    @BindView(R.id.fab_like)
+    FloatingActionButton fabLike;
 
     int id = 0;
     int allNum = 0;
@@ -69,6 +73,7 @@ public class ZhihuDetailActivity extends RootActivity<ZhihuDetailPresenter> impl
         Intent intent = getIntent();
         id = intent.getExtras().getInt(Constants.IT_ZHIHU_DETAIL_ID);
         isNotTransition = intent.getBooleanExtra("isNotTransition",false);
+        mPresenter.queryLikeData(id);
         mPresenter.getDetailData(id);
         stateLoading();
         WebSettings settings = wvDetailContent.getSettings();
@@ -143,6 +148,20 @@ public class ZhihuDetailActivity extends RootActivity<ZhihuDetailPresenter> impl
         String htmlData = HtmlUtil.createHtmlData(zhihuDetailBean.getBody(),zhihuDetailBean.getCss(),zhihuDetailBean.getImages());
         wvDetailContent.loadData(htmlData,HtmlUtil.MIME_TYPE, HtmlUtil.ENCODING);
 
+    }
+    @OnClick(R.id.fab_like)
+    void likeArticle(){
+        if(fabLike.isSelected()){
+            fabLike.setSelected(false);
+            mPresenter.deleteLikeData();
+        }else{
+            fabLike.setSelected(true);
+            mPresenter.insertLikeData();
+        }
+    }
+    @Override
+    public void setLikeButtonState(boolean isLiked) {
+        fabLike.setSelected(isLiked);
     }
 
     @Override

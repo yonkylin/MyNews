@@ -1,5 +1,7 @@
 package yonky.mynews.presenter.main;
 
+import android.util.Log;
+
 import javax.inject.Inject;
 
 import yonky.mynews.base.RxPresenter;

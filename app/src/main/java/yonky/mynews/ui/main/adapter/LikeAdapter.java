@@ -17,14 +17,15 @@ import yonky.mynews.R;
 import yonky.mynews.app.Constants;
 import yonky.mynews.component.ImageLoader;
 import yonky.mynews.model.bean.RealmLikeBean;
-import yonky.mynews.ui.TechDetailActivity;
+import yonky.mynews.ui.gank.activity.GirlDetailActivity;
+import yonky.mynews.ui.gank.activity.TechDetailActivity;
 import yonky.mynews.ui.zhihu.activity.ZhihuDetailActivity;
 
 /**
  * Created by Administrator on 2017/12/28.
  */
 
-public class LikeAdapter extends RecyclerView.Adapter {
+public class LikeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context mContext;
     private List<RealmLikeBean> mList;
     private LayoutInflater inflater;
@@ -35,10 +36,12 @@ public class LikeAdapter extends RecyclerView.Adapter {
         this.mContext = mContext;
         this.mList = mList;
         inflater = LayoutInflater.from(mContext);
+
     }
 
     @Override
     public int getItemViewType(int position) {
+
         if(mList.get(position).getType()== Constants.TYPE_GIRL){
             return TYPE_GIRL;
         }else {
@@ -60,6 +63,7 @@ public class LikeAdapter extends RecyclerView.Adapter {
         if(holder instanceof ArticleViewHolder){
             ((ArticleViewHolder)holder).title.setText(mList.get(position).getTitle());
             switch (mList.get(position).getType()){
+
                 case Constants.TYPE_ZHIHU:
                     if(mList.get(position).getImage()!=null){
                         ImageLoader.load(mContext,mList.get(position).getImage(),((ArticleViewHolder)holder).image);
@@ -80,7 +84,7 @@ public class LikeAdapter extends RecyclerView.Adapter {
                     holder.itemView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            gotoTechDetail(mList.get(holder.getAdapterPosition()).getId(),null,mList.get(holder.getAdapterPosition()).getTitle(),
+                            gotoTechDetail(mList.get(holder.getAdapterPosition()).getUrl(),null,mList.get(holder.getAdapterPosition()).getTitle(),
                                     mList.get(holder.getAdapterPosition()).getId(),Constants.TYPE_ANDROID);
                         }
                     });
@@ -94,6 +98,28 @@ public class LikeAdapter extends RecyclerView.Adapter {
                             gotoTechDetail(mList.get(holder.getAdapterPosition()).getUrl(),null,
                                     mList.get(holder.getAdapterPosition()).getTitle(),mList.get(holder.getAdapterPosition()).getId(),Constants.TYPE_IOS);
 
+                        }
+                    });
+                    break;
+                case Constants.TYPE_WEB:
+                    ((ArticleViewHolder)holder).image.setImageResource(R.mipmap.ic_web);
+                    ((ArticleViewHolder)holder).from.setText("来自 干货 web");
+                    holder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            gotoTechDetail(mList.get(holder.getAdapterPosition()).getUrl(),null,mList.get(holder.getAdapterPosition()).getTitle(),
+                                    mList.get(holder.getAdapterPosition()).getId(),Constants.TYPE_WEB);
+                        }
+                    });
+                    break;
+                case Constants.TYPE_WECHAT:
+                    ImageLoader.load(mContext,mList.get(position).getId(),((ArticleViewHolder)holder).image);
+                    ((ArticleViewHolder)holder).from.setText("来自 微信");
+                    holder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            gotoTechDetail(mList.get(holder.getAdapterPosition()).getUrl(),mList.get(holder.getAdapterPosition()).getImage(), mList.get(holder.getAdapterPosition()).getTitle()
+                                    ,mList.get(holder.getAdapterPosition()).getId(), Constants.TYPE_WECHAT);
                         }
                     });
                     break;
@@ -135,9 +161,10 @@ public class LikeAdapter extends RecyclerView.Adapter {
         public ArticleViewHolder(View itemView){
             super(itemView);
             ButterKnife.bind(this,itemView);
+
         }
     }
-    private void gotoDailyDetail(int id){
+     private void gotoDailyDetail(int id){
         Intent intent = new Intent();
         intent.setClass(mContext, ZhihuDetailActivity.class);
         intent.putExtra(Constants.IT_ZHIHU_DETAIL_ID,id);
@@ -155,11 +182,11 @@ public class LikeAdapter extends RecyclerView.Adapter {
         );
     }
     private void gotoGirlDetail(String url,String id){
-//        Intent intent = new Intent();
-//        intent.setClass(mContext,GirlDetailAcitivy.class);
-//        intent.putExtra(Constants.IT_GANK_GRIL_URL,url);
-//        intent.putExtra(Constants.IT_GANK_GRIL_ID,id);
-//        mContext.startActivity(intent);
+        Intent intent = new Intent();
+        intent.setClass(mContext,GirlDetailActivity.class);
+        intent.putExtra(Constants.IT_GANK_GRIL_URL,url);
+        intent.putExtra(Constants.IT_GANK_GRIL_ID,id);
+        mContext.startActivity(intent);
     }
 
 }

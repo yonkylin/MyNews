@@ -19,7 +19,7 @@
     >
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="@dimen/search_view_text_padding"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/iv_girl_image"

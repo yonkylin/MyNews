@@ -28,6 +28,7 @@ import yonky.mynews.component.RxBus;
 import yonky.mynews.model.event.SearchEvent;
 import yonky.mynews.presenter.main.MainPresenter;
 import yonky.mynews.ui.gank.fragment.GankMainFragment;
+import yonky.mynews.ui.main.fragment.LikeFragment;
 import yonky.mynews.ui.wechat.fragment.WechatMainFragment;
 import yonky.mynews.ui.zhihu.fragment.ZhihuMainFragment;
 
@@ -47,6 +48,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     ZhihuMainFragment mZhihuFragment;
     WechatMainFragment mWechatFragment;
     GankMainFragment mGankFragment;
+    LikeFragment mLikeFragment;
 
     ActionBarDrawerToggle mDrawerToggle;
 
@@ -83,6 +85,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         mZhihuFragment = new ZhihuMainFragment();
         mWechatFragment =new WechatMainFragment();
         mGankFragment = new GankMainFragment();
+        mLikeFragment = new LikeFragment();
 
 
         mDrawerToggle =new ActionBarDrawerToggle(this,mDrawerLayout,mToolbar,
@@ -90,7 +93,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         mDrawerToggle.syncState();
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         mLastMenuItem = mNavigationView.getMenu().findItem(R.id.drawer_zhihu);
-        loadMultipleRootFragment(R.id.fl_main_content,0,mZhihuFragment,mWechatFragment,mGankFragment);
+        loadMultipleRootFragment(R.id.fl_main_content,0,mZhihuFragment,mWechatFragment,mGankFragment,mLikeFragment);
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -107,6 +110,9 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                         showFragment = Constants.TYPE_GANK;
                         mSearchMenuItem.setVisible(true);
                         break;
+                    case R.id.drawer_like:
+                        showFragment =Constants.TYPE_LIKE;
+                        mSearchMenuItem.setVisible(false);
                 }
                 if(mLastMenuItem !=null){
                     mLastMenuItem.setCheckable(false);

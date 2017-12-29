@@ -14,14 +14,14 @@ public interface ZhihuDetailContract {
 
 //        void showExtraInfo(DetailExtrBean detailExtrBean);
 
-//        void setLikeButtonState(boolean isLiked);
+        void setLikeButtonState(boolean isLiked);
     }
     interface  Presenter extends BasePresenter<View>{
         void getDetailData(int id);
 //        void getExtraData(int id);
-//        void insertLikeData();
-//        void deleteLikeData();
-//        void queryLikeData(int id);
+        void insertLikeData();
+        void deleteLikeData();
+        void queryLikeData(int id);
 //        boolean getNoImageState();
 //        boolean getAutoCacheState();
     }

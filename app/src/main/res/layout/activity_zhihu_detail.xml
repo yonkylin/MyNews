@@ -84,5 +84,15 @@
 
         </FrameLayout>
     </android.support.v4.widget.NestedScrollView>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_like"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/selector_toolbar_like"
+        android:elevation="6dp"
+        app:layout_anchor="@id/app_bar"
+        app:pressedTranslationZ="12dp"
+        app:layout_anchorGravity="bottom|end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </android.support.design.widget.CoordinatorLayout>
