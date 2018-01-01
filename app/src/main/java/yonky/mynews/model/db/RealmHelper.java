@@ -84,7 +84,7 @@ public class RealmHelper implements DBHelper {
 
     @Override
     public List<RealmLikeBean> getLikeList() {
-        RealmResults<RealmLikeBean> results = mRealm.where(RealmLikeBean.class).findAll();
+        RealmResults<RealmLikeBean> results = mRealm.where(RealmLikeBean.class).findAllSorted("time");
         return mRealm.copyFromRealm(results);
     }
 //修改收藏记录 时间戳以重新排序

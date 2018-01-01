@@ -75,7 +75,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         super.onCreate(savedInstanceState);
         showHideFragment(getTargetFragment(showFragment),getTargetFragment(hideFragment));
         mNavigationView.getMenu().findItem(R.id.drawer_zhihu).setCheckable(false);
-        mToolbar.setTitle(mNavigationView.getMenu().findItem(getCurrentItem(showFragment)).getTitle().toString());;
+        mToolbar.setTitle(mNavigationView.getMenu().findItem(getCurrentItem(showFragment)).getTitle().toString());
         hideFragment = showFragment;
     }
 
@@ -86,7 +86,6 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         mWechatFragment =new WechatMainFragment();
         mGankFragment = new GankMainFragment();
         mLikeFragment = new LikeFragment();
-
 
         mDrawerToggle =new ActionBarDrawerToggle(this,mDrawerLayout,mToolbar,
                 R.string.drawer_open,R.string.drawer_close);
@@ -115,7 +114,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                         mSearchMenuItem.setVisible(false);
                 }
                 if(mLastMenuItem !=null){
-                    mLastMenuItem.setCheckable(false);
+                    mLastMenuItem.setChecked(false);
                 }
                 mLastMenuItem = item;
                 mPresenter.setCurrentItem(showFragment);
