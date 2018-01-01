@@ -87,7 +87,7 @@
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_like"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/selector_toolbar_like"
+        android:src="@drawable/selector_like"
         android:elevation="6dp"
         app:layout_anchor="@id/app_bar"
         app:pressedTranslationZ="12dp"

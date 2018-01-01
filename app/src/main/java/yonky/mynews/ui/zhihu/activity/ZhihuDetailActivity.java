@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
 import android.transition.Transition;
+import android.util.Log;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -151,9 +152,11 @@ public class ZhihuDetailActivity extends RootActivity<ZhihuDetailPresenter> impl
     }
     @OnClick(R.id.fab_like)
     void likeArticle(){
+        Log.e("yonky",fabLike.isSelected()+"");
         if(fabLike.isSelected()){
             fabLike.setSelected(false);
             mPresenter.deleteLikeData();
+
         }else{
             fabLike.setSelected(true);
             mPresenter.insertLikeData();
