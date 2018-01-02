@@ -13,6 +13,7 @@ import yonky.mynews.app.Constants;
  */
 
 public class ImplPreferencesHelper implements PreferencesHelper {
+    private static final boolean DEFAULT_AUTO_SAVE = true;
     private static final int DEFAULT_CURRENT_ITEM= Constants.TYPE_ZHIHU;
 
     private static final String SHAREDPREFERENCES_NAME="my_sp";
@@ -31,5 +32,15 @@ public class ImplPreferencesHelper implements PreferencesHelper {
     @Override
     public void setCurrentItem(int item) {
         mSprefs.edit().putInt(Constants.SP_CURRENT_ITEM,item).apply();
+    }
+
+    @Override
+    public boolean getAutoCacheState() {
+        return mSprefs.getBoolean(Constants.SP_AUTO_CACHE,DEFAULT_AUTO_SAVE);
+    }
+
+    @Override
+    public void setAutoCacheState(boolean state) {
+        mSprefs.edit().putBoolean(Constants.SP_AUTO_CACHE,state).apply();
     }
 }

@@ -7,5 +7,7 @@ package yonky.mynews.model.prefs;
 public interface PreferencesHelper {
     int getCurrentItem();
     void setCurrentItem(int item);
+    boolean getAutoCacheState();
+    void setAutoCacheState(boolean state);
 
 }

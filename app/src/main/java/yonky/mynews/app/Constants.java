@@ -36,6 +36,7 @@ public class Constants {
     public static final String PATH_SDCARD = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "MyNews";
 
     //================= PREFERENCE ====================
+    public static final String SP_AUTO_CACHE = "auto_cache";
     public static final String SP_CURRENT_ITEM = "current_item";
     //================= INTENT ====================
     public static final String IT_ZHIHU_DETAIL_ID = "zhihu_detail_id";

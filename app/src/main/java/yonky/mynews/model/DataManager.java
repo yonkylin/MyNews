@@ -166,4 +166,16 @@ public class DataManager implements HttpHelper,DBHelper,PreferencesHelper {
     public Flowable<GoldHttpResponse<List<GoldListBean>>> fetchGoldList(String type, int num, int page) {
         return mHttpHelper.fetchGoldList(type,num,page);
     }
+
+//    设置
+
+    @Override
+    public boolean getAutoCacheState() {
+        return mPreferencesHelper.getAutoCacheState();
+    }
+
+    @Override
+    public void setAutoCacheState(boolean state) {
+            mPreferencesHelper.setAutoCacheState(state);
+    }
 }
