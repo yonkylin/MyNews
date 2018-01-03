@@ -9,6 +9,7 @@ import yonky.mynews.ui.gank.fragment.GirlFragment;
 import yonky.mynews.ui.gank.fragment.TechFragment;
 import yonky.mynews.ui.gold.fragment.GoldPagerFragment;
 import yonky.mynews.ui.main.fragment.LikeFragment;
+import yonky.mynews.ui.main.fragment.SettingFragment;
 import yonky.mynews.ui.wechat.fragment.WechatMainFragment;
 import yonky.mynews.ui.zhihu.fragment.DailyFragment;
 import yonky.mynews.ui.zhihu.fragment.HotFragment;
@@ -24,6 +25,8 @@ public interface FragmentComponent {
     Activity getActivity();
 //    收藏
     void inject(LikeFragment likeFragment);
+//    设置
+    void inject(SettingFragment settingFragment);
 //    知乎
     void inject(DailyFragment dailyFragment);
     void inject(ThemeFragment themeFragment);
@@ -36,6 +39,8 @@ public interface FragmentComponent {
     void inject(GirlFragment girlFragment);
 //    掘金
     void inject(GoldPagerFragment goldPagerFragment);
+
+
 
 
 }

@@ -178,4 +178,14 @@ public class DataManager implements HttpHelper,DBHelper,PreferencesHelper {
     public void setAutoCacheState(boolean state) {
             mPreferencesHelper.setAutoCacheState(state);
     }
+
+    @Override
+    public boolean getNoImageState() {
+        return mPreferencesHelper.getNoImageState();
+    }
+
+    @Override
+    public void setNoImageState(boolean state) {
+        mPreferencesHelper.setNoImageState(state);
+    }
 }

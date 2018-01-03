@@ -12,6 +12,8 @@ public interface SettingContract {
 
     }
     interface Presenter extends BasePresenter<SettingContract.View>{
+        void setNoImageState(boolean state);
+        boolean getNoImageState();
         void setAutoCacheState(boolean state);
         boolean getAutoCacheState();
     }

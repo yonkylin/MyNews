@@ -9,5 +9,7 @@ public interface PreferencesHelper {
     void setCurrentItem(int item);
     boolean getAutoCacheState();
     void setAutoCacheState(boolean state);
+    boolean getNoImageState();
+    void setNoImageState(boolean state);
 
 }

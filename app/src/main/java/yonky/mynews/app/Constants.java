@@ -21,6 +21,7 @@ public class Constants {
     public static final int TYPE_GIRL = 105;
 
     public static final int TYPE_LIKE = 111;
+    public static final int TYPE_SETTING = 110;
 
     //============key================
     public static final String KEY_API="a744d07b473a985f6f98424d1886cc42";
@@ -38,6 +39,7 @@ public class Constants {
     //================= PREFERENCE ====================
     public static final String SP_AUTO_CACHE = "auto_cache";
     public static final String SP_CURRENT_ITEM = "current_item";
+    public static final String SP_NO_IMAGE = "no_image";
     //================= INTENT ====================
     public static final String IT_ZHIHU_DETAIL_ID = "zhihu_detail_id";
     public static final String IT_ZHIHU_THEME_ID = "zhihu_theme_id";

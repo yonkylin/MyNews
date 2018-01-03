@@ -27,4 +27,16 @@ public class SettingPresenter extends RxPresenter<SettingContract.View> implemen
     public void setAutoCacheState(boolean state) {
         mDataManager.setAutoCacheState(state);
     }
+
+    @Override
+    public boolean getNoImageState() {
+        return mDataManager.getNoImageState();
+    }
+
+    @Override
+    public void setNoImageState(boolean state) {
+        mDataManager.setNoImageState(state);
+    }
+
+
 }

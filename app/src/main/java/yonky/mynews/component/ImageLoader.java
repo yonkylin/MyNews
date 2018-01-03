@@ -14,12 +14,14 @@ import yonky.mynews.app.App;
  */
 
 public class ImageLoader {
-    public static void load(Context context , String url,ImageView iv){
-        Glide.with(context)
-                .load(url)
-                .crossFade()
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .into(iv);
+    public static void load(Context context , String url,ImageView iv) {
+        if (!App.getAppComponent().preferencesHelper().getNoImageState()) {
+            Glide.with(context)
+                    .load(url)
+                    .crossFade()
+                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                    .into(iv);
+        }
     }
 
     public static void load(Activity activity,String url,ImageView iv){

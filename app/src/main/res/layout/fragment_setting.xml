@@ -25,6 +25,7 @@
             android:orientation="vertical">
             <LinearLayout
                 android:orientation="horizontal"
+                android:padding="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
@@ -50,6 +51,7 @@
             </LinearLayout>
             <include layout="@layout/view_line_05"/>
             <LinearLayout
+                android:padding="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
@@ -79,20 +81,24 @@
         android:text="@string/setting_other"
         />
     <android.support.v7.widget.CardView
+        android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardElevation="2dp"
+        app:cardCornerRadius="3dp"
+        android:background="#fff"
         >
         <LinearLayout
             android:id="@+id/ll_setting_clear"
             android:padding="12dp"
-            android:foreground="?android:attr//selectableItemBackground"
+            android:foreground="?android:attr/selectableItemBackground"
             android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="mipmap/ic_clear"/>
+                android:src="@mipmap/ic_clear"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_weight="1"

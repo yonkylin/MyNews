@@ -14,6 +14,7 @@ import yonky.mynews.app.Constants;
 
 public class ImplPreferencesHelper implements PreferencesHelper {
     private static final boolean DEFAULT_AUTO_SAVE = true;
+    private static final boolean DEFAULT_NO_IMAGE = false;
     private static final int DEFAULT_CURRENT_ITEM= Constants.TYPE_ZHIHU;
 
     private static final String SHAREDPREFERENCES_NAME="my_sp";
@@ -42,5 +43,15 @@ public class ImplPreferencesHelper implements PreferencesHelper {
     @Override
     public void setAutoCacheState(boolean state) {
         mSprefs.edit().putBoolean(Constants.SP_AUTO_CACHE,state).apply();
+    }
+
+    @Override
+    public void setNoImageState(boolean state) {
+        mSprefs.edit().putBoolean(Constants.SP_NO_IMAGE,state).apply();
+    }
+
+    @Override
+    public boolean getNoImageState() {
+        return mSprefs.getBoolean(Constants.SP_NO_IMAGE,DEFAULT_NO_IMAGE);
     }
 }

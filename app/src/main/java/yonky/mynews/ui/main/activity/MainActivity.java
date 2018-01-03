@@ -29,6 +29,7 @@ import yonky.mynews.model.event.SearchEvent;
 import yonky.mynews.presenter.main.MainPresenter;
 import yonky.mynews.ui.gank.fragment.GankMainFragment;
 import yonky.mynews.ui.main.fragment.LikeFragment;
+import yonky.mynews.ui.main.fragment.SettingFragment;
 import yonky.mynews.ui.wechat.fragment.WechatMainFragment;
 import yonky.mynews.ui.zhihu.fragment.ZhihuMainFragment;
 
@@ -49,6 +50,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     WechatMainFragment mWechatFragment;
     GankMainFragment mGankFragment;
     LikeFragment mLikeFragment;
+    SettingFragment mSettingFragment;
 
     ActionBarDrawerToggle mDrawerToggle;
 
@@ -86,13 +88,14 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         mWechatFragment =new WechatMainFragment();
         mGankFragment = new GankMainFragment();
         mLikeFragment = new LikeFragment();
+        mSettingFragment = new SettingFragment();
 
         mDrawerToggle =new ActionBarDrawerToggle(this,mDrawerLayout,mToolbar,
                 R.string.drawer_open,R.string.drawer_close);
         mDrawerToggle.syncState();
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         mLastMenuItem = mNavigationView.getMenu().findItem(R.id.drawer_zhihu);
-        loadMultipleRootFragment(R.id.fl_main_content,0,mZhihuFragment,mWechatFragment,mGankFragment,mLikeFragment);
+        loadMultipleRootFragment(R.id.fl_main_content,0,mZhihuFragment,mWechatFragment,mGankFragment,mLikeFragment,mSettingFragment);
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -112,6 +115,11 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                     case R.id.drawer_like:
                         showFragment =Constants.TYPE_LIKE;
                         mSearchMenuItem.setVisible(false);
+                        break;
+                    case R.id.drawer_setting:
+                        showFragment = Constants.TYPE_SETTING;
+                        mSearchMenuItem.setVisible(false);
+                        break;
                 }
                 if(mLastMenuItem !=null){
                     mLastMenuItem.setChecked(false);
@@ -211,8 +219,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 //                return mVtexFragment;
             case Constants.TYPE_LIKE:
                 return mLikeFragment;
-//            case Constants.TYPE_SETTING:
-//                return mSettingFragment;
+            case Constants.TYPE_SETTING:
+                return mSettingFragment;
 //            case Constants.TYPE_ABOUT:
 //                return mAboutFragment;
         }
@@ -233,8 +241,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 //                return R.id.drawer_vtex;
             case Constants.TYPE_LIKE:
                 return R.id.drawer_like;
-//            case Constants.TYPE_SETTING:
-//                return R.id.drawer_setting;
+            case Constants.TYPE_SETTING:
+                return R.id.drawer_setting;
 //            case Constants.TYPE_ABOUT:
 //                return R.id.drawer_about;
         }
