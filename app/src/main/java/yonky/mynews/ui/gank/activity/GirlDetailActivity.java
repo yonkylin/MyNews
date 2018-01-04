@@ -69,16 +69,19 @@ public class GirlDetailActivity extends SimpleActivity
         Intent intent = getIntent();
         url = intent.getExtras().getString(Constants.IT_GANK_GRIL_URL);
         id = intent.getExtras().getString(Constants.IT_GANK_GRIL_ID);
-        if(url !=null){
-            Glide.with(mContext).load(url).asBitmap().into(new SimpleTarget<Bitmap>(){
-                @Override
-                public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-                    bitmap =resource;
-                    ivGirlDetail.setImageBitmap(resource);
-                    mAttacher = new PhotoViewAttacher(ivGirlDetail);
-                }
-            });
+        if(!App.getAppComponent().preferencesHelper().getNoImageState()){
+            if(url !=null){
+                Glide.with(mContext).load(url).asBitmap().into(new SimpleTarget<Bitmap>(){
+                    @Override
+                    public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                        bitmap =resource;
+                        ivGirlDetail.setImageBitmap(resource);
+                        mAttacher = new PhotoViewAttacher(ivGirlDetail);
+                    }
+                });
+            }
         }
+
     }
 
     @Override

@@ -95,7 +95,13 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         mDrawerToggle.syncState();
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         mLastMenuItem = mNavigationView.getMenu().findItem(R.id.drawer_zhihu);
-        loadMultipleRootFragment(R.id.fl_main_content,0,mZhihuFragment,mWechatFragment,mGankFragment,mLikeFragment,mSettingFragment);
+        loadMultipleRootFragment(R.id.fl_main_content,0,
+                mZhihuFragment,
+                mWechatFragment,
+                mGankFragment,
+                mLikeFragment,
+                mSettingFragment
+        );
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -209,20 +215,15 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         switch (item) {
             case Constants.TYPE_ZHIHU:
                 return mZhihuFragment;
-            case Constants.TYPE_GANK:
-                return mGankFragment;
-            case Constants.TYPE_WECHAT:
+             case Constants.TYPE_WECHAT:
                 return mWechatFragment;
-//            case Constants.TYPE_GOLD:
-//                return mGoldFragment;
-//            case Constants.TYPE_VTEX:
-//                return mVtexFragment;
+              case Constants.TYPE_GANK:
+                return mGankFragment;
+
             case Constants.TYPE_LIKE:
                 return mLikeFragment;
             case Constants.TYPE_SETTING:
                 return mSettingFragment;
-//            case Constants.TYPE_ABOUT:
-//                return mAboutFragment;
         }
         return mZhihuFragment;
     }
@@ -235,16 +236,10 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 return R.id.drawer_gank;
             case Constants.TYPE_WECHAT:
                 return R.id.drawer_wechat;
-//            case Constants.TYPE_GOLD:
-//                return R.id.drawer_gold;
-//            case Constants.TYPE_VTEX:
-//                return R.id.drawer_vtex;
             case Constants.TYPE_LIKE:
                 return R.id.drawer_like;
             case Constants.TYPE_SETTING:
                 return R.id.drawer_setting;
-//            case Constants.TYPE_ABOUT:
-//                return R.id.drawer_about;
         }
         return R.id.drawer_zhihu;
     }

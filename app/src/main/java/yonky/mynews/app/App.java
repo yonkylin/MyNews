@@ -55,7 +55,7 @@ public class App extends Application {
 
     protected void attachBaseContext(Context base){
         super.attachBaseContext(base);
-//        MultiDex.install(this);
+        MultiDex.install(this);
     }
     public void addActivity(Activity act){
         if(allActivities==null){

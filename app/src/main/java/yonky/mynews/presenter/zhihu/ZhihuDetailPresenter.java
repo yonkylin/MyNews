@@ -66,4 +66,14 @@ public class ZhihuDetailPresenter extends RxPresenter<ZhihuDetailContract.View> 
     public void queryLikeData(int id) {
         mView.setLikeButtonState(mDataManager.queryLikeId(String.valueOf(id)));
     }
+
+    @Override
+    public boolean getNoImageState() {
+        return mDataManager.getNoImageState();
+    }
+
+    @Override
+    public boolean getAutoCacheState() {
+        return mDataManager.getAutoCacheState();
+    }
 }

@@ -22,7 +22,7 @@ public interface ZhihuDetailContract {
         void insertLikeData();
         void deleteLikeData();
         void queryLikeData(int id);
-//        boolean getNoImageState();
-//        boolean getAutoCacheState();
+        boolean getNoImageState();
+        boolean getAutoCacheState();
     }
 }

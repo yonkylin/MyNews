@@ -26,6 +26,8 @@ import yonky.mynews.base.SimpleActivity;
 import yonky.mynews.model.bean.RealmLikeBean;
 import yonky.mynews.model.db.RealmHelper;
 import yonky.mynews.model.prefs.ImplPreferencesHelper;
+import yonky.mynews.util.ShareUtil;
+import yonky.mynews.util.SystemUtil;
 
 /**
  * Created by Administrator on 2017/11/4.
@@ -65,6 +67,19 @@ public class TechDetailActivity extends SimpleActivity {
         setToolBar(toolBar,title);
 
         WebSettings settings = wvTechcontent.getSettings();
+        if(mImplPreferencesHelper.getNoImageState()){
+            settings.setBlockNetworkImage(true);
+        }
+        if(mImplPreferencesHelper.getAutoCacheState()){
+            settings.setAppCacheEnabled(true);
+            settings.setDomStorageEnabled(true);
+            settings.setDatabaseEnabled(true);
+            if(SystemUtil.isNetworkConnected()){
+                settings.setCacheMode(WebSettings.LOAD_DEFAULT);
+            }else {
+                settings.setCacheMode(WebSettings.LOAD_CACHE_ONLY);
+            }
+        }
         settings.setJavaScriptEnabled(true);
         settings.setLoadWithOverviewMode(true);
         settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
@@ -133,9 +148,10 @@ public class TechDetailActivity extends SimpleActivity {
                 }
                 break;
             case R.id.action_copy:
-
+                SystemUtil.copyToClipBoard(mContext,url);
+                return true;
             case R.id.action_share:
-                break;
+              ShareUtil.shareText(mContext,url,"分享一篇文章");
         }
         return super.onOptionsItemSelected(item);
     }

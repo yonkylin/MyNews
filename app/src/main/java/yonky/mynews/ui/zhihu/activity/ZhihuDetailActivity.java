@@ -78,14 +78,20 @@ public class ZhihuDetailActivity extends RootActivity<ZhihuDetailPresenter> impl
         mPresenter.getDetailData(id);
         stateLoading();
         WebSettings settings = wvDetailContent.getSettings();
-        settings.setAppCacheEnabled(true);
-        settings.setDomStorageEnabled(true);
-        settings.setDatabaseEnabled(true);
-        if(SystemUtil.isNetworkConnected()){
-            settings.setCacheMode(WebSettings.LOAD_DEFAULT);
-        }else{
-            settings.setCacheMode(WebSettings.LOAD_CACHE_ONLY);
+        if(mPresenter.getNoImageState()){
+            settings.setBlockNetworkImage(true);
         }
+        if (mPresenter.getAutoCacheState()) {
+            settings.setAppCacheEnabled(true);
+            settings.setDomStorageEnabled(true);
+            settings.setDatabaseEnabled(true);
+            if(SystemUtil.isNetworkConnected()){
+                settings.setCacheMode(WebSettings.LOAD_DEFAULT);
+            }else{
+                settings.setCacheMode(WebSettings.LOAD_CACHE_ONLY);
+            }
+        }
+
         settings.setJavaScriptEnabled(true);
         settings.setLoadWithOverviewMode(true);
         settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
@@ -152,7 +158,6 @@ public class ZhihuDetailActivity extends RootActivity<ZhihuDetailPresenter> impl
     }
     @OnClick(R.id.fab_like)
     void likeArticle(){
-        Log.e("yonky",fabLike.isSelected()+"");
         if(fabLike.isSelected()){
             fabLike.setSelected(false);
             mPresenter.deleteLikeData();

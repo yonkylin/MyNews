@@ -57,25 +57,28 @@ public class GirlAdapter extends RecyclerView.Adapter<GirlAdapter.ViewHolder> {
             ViewGroup.LayoutParams layoutParams = holder.ivGirl.getLayoutParams();
             layoutParams.height = mList.get(holder.getAdapterPosition()).getHeight();
         }
+        if(App.getAppComponent().preferencesHelper().getNoImageState()) {
 
-        Glide.with(mContext)
-                .load(mList.get(position).getUrl()).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(new SimpleTarget<Bitmap>(App.SCREEN_WIDTH/2,App.SCREEN_WIDTH/2) {
-                    @Override
-                    public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-                        if(holder.getAdapterPosition() != RecyclerView.NO_POSITION){
-                            if(mList.get(holder.getAdapterPosition()).getHeight()<=0){
-                                int width = resource.getWidth();
-                                int height = resource.getHeight();
-                                int realHeight = (App.SCREEN_WIDTH/2)*height / width;
-                                mList.get(holder.getAdapterPosition()).setHeight(realHeight);
-                                ViewGroup.LayoutParams lp = holder.ivGirl.getLayoutParams();
-                                lp.height = realHeight;
+
+            Glide.with(mContext)
+                    .load(mList.get(position).getUrl()).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(new SimpleTarget<Bitmap>(App.SCREEN_WIDTH / 2, App.SCREEN_WIDTH / 2) {
+                        @Override
+                        public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                            if (holder.getAdapterPosition() != RecyclerView.NO_POSITION) {
+                                if (mList.get(holder.getAdapterPosition()).getHeight() <= 0) {
+                                    int width = resource.getWidth();
+                                    int height = resource.getHeight();
+                                    int realHeight = (App.SCREEN_WIDTH / 2) * height / width;
+                                    mList.get(holder.getAdapterPosition()).setHeight(realHeight);
+                                    ViewGroup.LayoutParams lp = holder.ivGirl.getLayoutParams();
+                                    lp.height = realHeight;
+                                }
+                                holder.ivGirl.setImageBitmap(resource);
                             }
-                            holder.ivGirl.setImageBitmap(resource);
                         }
-                    }
-                });
+                    });
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

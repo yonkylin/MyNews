@@ -85,10 +85,10 @@ public class SettingFragment extends BaseFragment<SettingPresenter> implements C
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         switch (buttonView.getId()){
             case R.id.cb_setting_cache:
-                mPresenter.getAutoCacheState();
+                mPresenter.setAutoCacheState(isChecked);
                 break;
             case R.id.cb_setting_image:
-                mPresenter.getNoImageState();
+                mPresenter.setNoImageState(isChecked);
                 break;
         }
     }
