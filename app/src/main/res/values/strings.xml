@@ -35,11 +35,14 @@
     <string name="setting_normal">常规</string>
     <string name="setting_other">其他</string>
 
-    <string name="about_addr">项目地址:\nhttps://github.com/codeestX/GeekNews</string>
-    <string name="about_author">作者:Est\t\t(codeest.dev@gmail.com)</string>
-    <string name="about_project">项目简介:\n极客日报,一个纯粹的阅读App\n为了熟悉当前Android端主流框架的使用,也为了能有一款将新闻、技术文章、福利一网打尽的简洁的阅读应用,利用闲暇时间做了这个项目n(*≧▽≦*)n\n
-        本着学习的目的,该项目会持续迭代与优化,加入更丰富的阅读内容与功能,并不断尝试最新的技术,欢迎star、fork、issue、email</string>
-    <string name="about_award">请作者吃糖(￣▽￣)</string>
-    <string name="about_info">GeekNews\t\t\tV1.3.0</string>
-    <string name="error_tips">糟糕！加载失败了ヽ(≧Д≦)ノ\n 偷偷告诉你一些可能的原因：\n1.惨不忍睹的网络环境\n 2.服务器君的不定期抽风\n 3.GeekNews现在心情不好拒绝服务喔~</string>
+
+    <string name="about_content">项目简介:\nMyNews,一个纯粹的阅读App\n为了熟悉当前Android端主流框架的使用,
+        本项目采用MVP设计模式，使用到的库包括： \n
+Dagger2,RxJava2,Retrofit2.0,Glide,Realm,butterknife等热门技术
+
+
+\n收藏界面采用RecyclerView+Realm展示数据，支持item滑动删除，item拖动改变位置。
+</string>
+
+    <string name="error_tips">糟糕！加载失败了ヽ(≧Д≦)ノ\n 偷偷告诉你一些可能的原因：\n1.惨不忍睹的网络环境\n 2.服务器君的不定期抽风\n 3.MyNews现在心情不好拒绝服务喔~</string>
 </resources>

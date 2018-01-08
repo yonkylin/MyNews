@@ -28,6 +28,7 @@ import yonky.mynews.component.RxBus;
 import yonky.mynews.model.event.SearchEvent;
 import yonky.mynews.presenter.main.MainPresenter;
 import yonky.mynews.ui.gank.fragment.GankMainFragment;
+import yonky.mynews.ui.main.fragment.AboutFragment;
 import yonky.mynews.ui.main.fragment.LikeFragment;
 import yonky.mynews.ui.main.fragment.SettingFragment;
 import yonky.mynews.ui.wechat.fragment.WechatMainFragment;
@@ -51,6 +52,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     GankMainFragment mGankFragment;
     LikeFragment mLikeFragment;
     SettingFragment mSettingFragment;
+    AboutFragment mAboutFragment;
 
     ActionBarDrawerToggle mDrawerToggle;
 
@@ -89,6 +91,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         mGankFragment = new GankMainFragment();
         mLikeFragment = new LikeFragment();
         mSettingFragment = new SettingFragment();
+        mAboutFragment = new AboutFragment();
 
         mDrawerToggle =new ActionBarDrawerToggle(this,mDrawerLayout,mToolbar,
                 R.string.drawer_open,R.string.drawer_close);
@@ -100,7 +103,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 mWechatFragment,
                 mGankFragment,
                 mLikeFragment,
-                mSettingFragment
+                mSettingFragment,
+                mAboutFragment
         );
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -124,6 +128,10 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                         break;
                     case R.id.drawer_setting:
                         showFragment = Constants.TYPE_SETTING;
+                        mSearchMenuItem.setVisible(false);
+                        break;
+                    case R.id.drawer_about:
+                        showFragment = Constants.TYPE_ABOUT;
                         mSearchMenuItem.setVisible(false);
                         break;
                 }
@@ -224,6 +232,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 return mLikeFragment;
             case Constants.TYPE_SETTING:
                 return mSettingFragment;
+            case Constants.TYPE_ABOUT:
+                return mAboutFragment;
         }
         return mZhihuFragment;
     }
@@ -240,6 +250,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 return R.id.drawer_like;
             case Constants.TYPE_SETTING:
                 return R.id.drawer_setting;
+            case Constants.TYPE_ABOUT:
+                return R.id.drawer_about;
         }
         return R.id.drawer_zhihu;
     }

@@ -10,18 +10,19 @@ import java.io.File;
 
 public class Constants {
     public static final int TYPE_ZHIHU=101;
-    public static final int TYPE_WECHAT=106;
+    public static final int TYPE_WECHAT=102;
     public static final int TYPE_GANK = 107;
 
-    public static final int TYPE_ANDROID = 102;
+    public static final int TYPE_ANDROID = 103;
 
-    public static final int TYPE_IOS = 103;
+    public static final int TYPE_IOS = 104;
 
-    public static final int TYPE_WEB = 104;
-    public static final int TYPE_GIRL = 105;
+    public static final int TYPE_WEB = 105;
+    public static final int TYPE_GIRL = 106;
 
     public static final int TYPE_LIKE = 111;
     public static final int TYPE_SETTING = 110;
+    public static final int TYPE_ABOUT = 112;
 
     //============key================
     public static final String KEY_API="a744d07b473a985f6f98424d1886cc42";

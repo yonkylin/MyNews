@@ -96,7 +96,6 @@ public class DailyFragment extends RootFragment<DailyPresenter> implements Daily
                     int month = Integer.valueOf(currentDate.substring(4,6));
                     int day = Integer.valueOf(currentDate.substring(6,8));
                     CalendarDay date  = CalendarDay.from(year,month-1,day);
-                    Log.e("yonky:swipeRefresh",date+"");
                     RxBus.getDefault().post(date);
                 }
             }

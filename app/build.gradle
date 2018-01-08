@@ -66,15 +66,17 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.2.1'
     compile 'com.jakewharton:butterknife-compiler:8.2.1'
 //    compile 'org.glassfish:javax.annotation:10.0-b28'
+// 内存泄漏 canary
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+    debugCompile 'com.github.markzhai:blockcanary-android:1.5.0'
+    releaseCompile 'com.github.markzhai:blockcanary-no-op:1.5.0'
 
     //other
     compile'com.android.support:multidex:1.0.1'
     compile'com.orhanobut:logger:1.15'
     compile'me.yokeyword:fragmentation:0.10.4'
     compile'com.tencent.bugly:crashreport:latest.release'
-
-
-
 
 
 }

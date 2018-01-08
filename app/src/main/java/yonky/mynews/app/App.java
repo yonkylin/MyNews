@@ -50,7 +50,7 @@ public class App extends Application {
 //        初始化数据库
         Realm.init(getApplicationContext());
 //        在子线程中完成其他初始化
-//        InitializeService.start(this);
+        InitializeService.start(this);
     }
 
     protected void attachBaseContext(Context base){
