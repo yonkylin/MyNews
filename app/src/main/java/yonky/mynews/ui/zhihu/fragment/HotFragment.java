@@ -50,7 +50,7 @@ public class HotFragment extends RootFragment<HotPresenter> implements HotContra
         mList = new ArrayList<>();
         stateLoading();
         mAdapter = new HotAdapter(mContext,mList);
-//        rvHotContent.setVisibility(V.);
+//        rvHotContent.setVisibility(View.INVISIBLE);
         rvHotContent.setLayoutManager(new LinearLayoutManager(mContext));
         rvHotContent.setAdapter(mAdapter);
         mPresenter.getHotData();
@@ -86,7 +86,7 @@ public class HotFragment extends RootFragment<HotPresenter> implements HotContra
             swipeRefresh.setRefreshing(false);
         }
         stateMain();
-       rvHotContent.setVisibility(View.VISIBLE);
+//       rvHotContent.setVisibility(View.VISIBLE);
         mList.clear();
         mList.addAll(hotListBean.getRecent());
         mAdapter.notifyDataSetChanged();

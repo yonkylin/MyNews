@@ -136,10 +136,10 @@ public class ThemeActivity extends RootActivity<ThemeChildPresenter> implements 
         mList.addAll(themeChildListBean.getStories());
         mAdapter.notifyDataSetChanged();
         ImageLoader.load(mContext,themeChildListBean.getBackground(),ivOrigin);
-        Glide.with(mContext)
-                .load(themeChildListBean.getBackground())
-                .bitmapTransform(new BlurTransformation(mContext))
-                .into(ivBlur);
+//        Glide.with(mContext)
+//                .load(themeChildListBean.getBackground())
+//                .bitmapTransform(new BlurTransformation(mContext))
+//                .into(ivBlur);
         tvDes.setText(themeChildListBean.getDescription());
     }
 }

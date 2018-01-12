@@ -7,13 +7,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
 import android.transition.Transition;
-import android.util.Log;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.tencent.smtt.sdk.WebSettings;
+import com.tencent.smtt.sdk.WebView;
+import com.tencent.smtt.sdk.WebViewClient;
 
 import net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout;
 
@@ -152,7 +151,7 @@ public class ZhihuDetailActivity extends RootActivity<ZhihuDetailPresenter> impl
         }
         clpToolbar.setTitle(zhihuDetailBean.getTitle());
         detailBarCopyright.setText(zhihuDetailBean.getImage_source());
-        String htmlData = HtmlUtil.createHtmlData(zhihuDetailBean.getBody(),zhihuDetailBean.getCss(),zhihuDetailBean.getImages());
+            String htmlData = HtmlUtil.createHtmlData(zhihuDetailBean.getBody(), zhihuDetailBean.getCss(), zhihuDetailBean.getJs());
         wvDetailContent.loadData(htmlData,HtmlUtil.MIME_TYPE, HtmlUtil.ENCODING);
 
     }

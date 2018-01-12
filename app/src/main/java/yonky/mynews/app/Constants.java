@@ -30,6 +30,7 @@ public class Constants {
     public static final String LEANCLOUD_ID = "mhke0kuv33myn4t4ghuid4oq2hjj12li374hvcif202y5bm6";
 
     public static final String LEANCLOUD_SIGN = "badc5461a25a46291054b902887a68eb,1480438132702";
+    public static final String BUGLY_ID="40d533a15a";
 
 //============PATH================
 

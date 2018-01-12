@@ -16,6 +16,7 @@ import android.view.MenuItem;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.tencent.bugly.crashreport.CrashReport;
 
 import butterknife.BindView;
 import me.yokeyword.fragmentation.SupportFragment;
@@ -145,6 +146,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 mDrawerLayout.closeDrawers();
                 showHideFragment(getTargetFragment(showFragment),getTargetFragment(hideFragment));
                 hideFragment = showFragment;
+                checkPermissions();
                 return true;
             }
         });

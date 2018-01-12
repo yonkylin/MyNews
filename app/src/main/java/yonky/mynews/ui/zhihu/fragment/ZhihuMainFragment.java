@@ -33,8 +33,8 @@ public class ZhihuMainFragment extends SimpleFragment{
     protected void initEventAndData() {
         fragments.add(new DailyFragment());
         fragments.add(new ThemeFragment());
-//        fragments.add(new SectionFragment());
-//        fragments.add(new HotFragment());
+        fragments.add(new SectionFragment());
+        fragments.add(new HotFragment());
         mAdapter = new ZhihuMainAdapter(getChildFragmentManager(),fragments,titles);
         mViewPager.setAdapter(mAdapter);
         mTabLayout.setupWithViewPager(mViewPager);

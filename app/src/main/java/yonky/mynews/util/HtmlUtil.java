@@ -71,7 +71,8 @@ private static final String NEEDED_FORMAT_JS_TAG = "<script src=\"%s\"></script>
     public static String createHtmlData(String html,List<String>cssList,List<String>jsList){
         final String css = HtmlUtil.createCssTag(cssList);
         final String js = HtmlUtil.createJsTag(jsList);
-        return css.concat(HIDE_HEADER_STYLE).concat(html).concat(js);
+            return css.concat(HIDE_HEADER_STYLE).concat(html).concat(js);
+
     }
 
 }

@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
 
     <application
         android:name="yonky.mynews.app.App"
@@ -36,7 +37,8 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:windowSoftInputMode="stateHidden|adjustResize"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            />
         <activity android:name=".ui.zhihu.activity.ThemeActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
@@ -54,6 +56,7 @@
         <activity android:name=".ui.gank.activity.GirlDetailActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
+        <service android:name=".component.InitializeService"/>
 
     </application>
 

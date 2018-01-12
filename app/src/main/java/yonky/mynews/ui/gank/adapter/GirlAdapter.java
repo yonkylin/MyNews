@@ -57,7 +57,7 @@ public class GirlAdapter extends RecyclerView.Adapter<GirlAdapter.ViewHolder> {
             ViewGroup.LayoutParams layoutParams = holder.ivGirl.getLayoutParams();
             layoutParams.height = mList.get(holder.getAdapterPosition()).getHeight();
         }
-        if(App.getAppComponent().preferencesHelper().getNoImageState()) {
+        if(!App.getAppComponent().preferencesHelper().getNoImageState()) {
 
 
             Glide.with(mContext)
