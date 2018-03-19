@@ -18,13 +18,14 @@ import yonky.mynews.app.App;
 
 public abstract class SimpleActivity extends SupportActivity {
     protected Activity mContext;
-    private Unbinder mUnBinder;
+//    private Unbinder mUnBinder;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayout());
-        mUnBinder = ButterKnife.bind(this);
+//        mUnBinder = ButterKnife.bind(this);
+        ButterKnife.bind(this);
         mContext= this;
         onViewCreated();
         App.getInstance().addActivity(this);
@@ -51,7 +52,7 @@ public abstract class SimpleActivity extends SupportActivity {
     protected void onDestroy() {
         super.onDestroy();
         App.getInstance().removeActivity(this);
-        mUnBinder.unbind();
+//        mUnBinder.unbind();
     }
 
     protected abstract int getLayout();
